@@ -1,0 +1,152 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "migrationId": {
+            "required": true,
+            "type": "string"
+        },
+        "targetShare": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "List of disks.",
+            "items": {
+                "allOf": [
+                    {
+                        "description": "Base resource object.",
+                        "properties": {
+                            "id": {
+                                "description": "ID of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "location": {
+                                "description": "Location of the resource.",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Name of the resource.",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "type": {
+                                "description": "Type of Resource.",
+                                "readOnly": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object",
+                        "x-ms-azure-resource": true
+                    }
+                ],
+                "description": "Managed Disk.",
+                "properties": {
+                    "properties": {
+                        "description": "Managed disk properties.",
+                        "properties": {
+                            "actualSizeGB": {
+                                "description": "The actual size of disk in GB.",
+                                "format": "int64",
+                                "readOnly": true,
+                                "type": "integer"
+                            },
+                            "diskId": {
+                                "description": "The disk id.",
+                                "type": "string"
+                            },
+                            "diskSku": {
+                                "description": "Disk Sku.",
+                                "enum": [
+                                    "Standard_LRS",
+                                    "Standard_ZRS",
+                                    "Standard_GRS",
+                                    "Standard_RAGRS",
+                                    "Premium_LRS",
+                                    "StandardSSD_LRS",
+                                    "UltraSSD_LRS"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "AccountType"
+                                }
+                            },
+                            "diskType": {
+                                "description": "Disk resource type.",
+                                "enum": [
+                                    "Undefined",
+                                    "Disk",
+                                    "Snapshot",
+                                    "RestorePoint",
+                                    "ManagedBlob"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "DiskResourceType"
+                                }
+                            },
+                            "managedBy": {
+                                "description": "Compute resource Uri which owns this disk.",
+                                "readOnly": true,
+                                "type": "string"
+                            },
+                            "provisionSizeGB": {
+                                "description": "The provision size of disk in GB.",
+                                "format": "int64",
+                                "readOnly": true,
+                                "type": "integer"
+                            },
+                            "sharePath": {
+                                "description": "The disk share path.",
+                                "type": "string"
+                            },
+                            "status": {
+                                "description": "Disk State.",
+                                "enum": [
+                                    "Undefined",
+                                    "Unattached",
+                                    "Attached",
+                                    "Reserved",
+                                    "ActiveSAS",
+                                    "Unknown",
+                                    "All",
+                                    "Recommended",
+                                    "OfflineMigration",
+                                    "OnlineMigration"
+                                ],
+                                "type": "string",
+                                "x-ms-enum": {
+                                    "modelAsString": true,
+                                    "name": "DiskState"
+                                }
+                            },
+                            "userResourceId": {
+                                "description": "The disk resource Uri from user view.",
+                                "readOnly": true,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2018-07-30-preview"
+        }
+    }
+}

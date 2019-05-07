@@ -1,0 +1,118 @@
+{
+    "title": "ComputeDiskAdminManagementClient",
+    "description": "The Admin Compute Disk Management Client.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/azsadmin-DiskMigrationJobs/2018-07-30-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://adminmanagement.local.azurestack.external/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Authorization uses an Azure Active Directory OAuth2 flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "DiskMigrationJobs_List": {
+            "main": "./lib/actions/DiskMigrationJobs_List.js",
+            "title": "Returns a list of disk migration jobs.",
+            "description": "Returns a list of disk migration jobs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiskMigrationJobs_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiskMigrationJobs_Get": {
+            "main": "./lib/actions/DiskMigrationJobs_Get.js",
+            "title": "Returns the requested disk migration job.",
+            "description": "Returns the requested disk migration job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiskMigrationJobs_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiskMigrationJobs_Create": {
+            "main": "./lib/actions/DiskMigrationJobs_Create.js",
+            "title": "Create a disk migration job.",
+            "description": "Create a disk migration job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiskMigrationJobs_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiskMigrationJobs_Cancel": {
+            "main": "./lib/actions/DiskMigrationJobs_Cancel.js",
+            "title": "Cancel a disk migration job.",
+            "description": "Cancel a disk migration job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiskMigrationJobs_Cancel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
