@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the ComputeDiskAdminManagementClient API (version 2018-07-30-preview).
 
 Generated from: https://api.apis.guru/v2/specs/azure.com/azsadmin-DiskMigrationJobs/2018-07-30-preview/swagger.json<br/>
-Generated at: 2019-05-07T17:37:27+03:00
+Generated at: 2019-06-11T18:13:34+03:00
 
 ## API Description
 
